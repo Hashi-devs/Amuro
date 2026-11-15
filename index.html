@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Àmúró Ayomiposi — Visual Artist &amp; Design Engineer</title>
+<meta name="description" content="Àmúró Ayomiposi — visual artist and design engineer in Lagos. I build what I craft.">
+<meta property="og:title" content="Àmúró Ayomiposi — Visual Artist & Design Engineer">
+<meta property="og:description" content="A growing visual artist, designer and engineer. I build what I craft.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/campus.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f6f5f1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233a6bd6'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-style='italic' font-size='20' fill='%23fff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="img/campus-s.webp" as="image" media="(max-width:699px)">
+<link rel="preload" href="img/campus.webp" as="image" media="(min-width:700px)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,300..700&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem('amuro-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}</script>
+
+<style>
+:root{--bg:#f6f5f1;--card:#ecebe5;--line:#dfddd6;--fg:#151513;--muted:#6b6a64;--soft:#9b9992;--acc:#3a6bd6;--sheet:#fbfaf7}
+html.dark{--bg:#0d0e10;--card:#17181b;--line:#25262a;--fg:#f1f0ec;--muted:#9c9b95;--soft:#66655f;--acc:#7aa2ff;--sheet:#141518}
+*{box-sizing:border-box}
+html{-webkit-tap-highlight-color:transparent;scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Bricolage Grotesque',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;transition:background-color .35s ease,color .35s ease}
+a{color:inherit}
+[hidden]{display:none !important}
+h1,h2,h3,.serif{font-family:'IM Fell English',Georgia,serif;font-weight:400}
+img{max-width:100%}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:6px;padding:8px 14px;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:background-color .35s ease}
+.brand{font-family:'IM Fell English',Georgia,serif;font-style:italic;font-size:19px;text-decoration:none;margin-right:auto;padding:0 2px}
+.iconbtn{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:var(--fg);cursor:pointer;border-radius:10px;flex:none}
+.iconbtn:hover{background:var(--card)}
+.iconbtn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.mode .moon{display:none}
+html.dark .mode .sun{display:none}
+html.dark .mode .moon{display:block}
+
+/* menu: drops down from the top */
+.menu{position:fixed;inset:0;z-index:40}
+.scrim{position:absolute;inset:-60px;background:rgba(20,20,18,.3);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;transition:opacity .3s ease}
+.sheet{position:absolute;top:0;left:0;right:0;max-height:100vh;max-height:100dvh;overflow-y:auto;background:var(--sheet);border-radius:0 0 22px 22px;padding:8px 14px 18px;box-shadow:0 24px 60px rgba(0,0,0,.18);transform:translateY(-104%);transition:transform .42s cubic-bezier(.3,.7,.2,1)}
+.menu.show .scrim{opacity:1}
+.menu.show .sheet{transform:none}
+.menu nav{display:flex;flex-direction:column;margin:4px 0 0}
+.menu nav a{font-family:'IM Fell English',Georgia,serif;font-size:clamp(52px,15vw,104px);line-height:1;text-decoration:none;color:var(--soft);padding:12px 6px 18px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:12px}
+.menu nav a:last-child{border-bottom:0}
+.menu nav a:hover,.menu nav a:focus-visible{color:var(--fg)}
+.menu nav a small{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;letter-spacing:.04em}
+body.lock{overflow:hidden}
+body.menu-on .hdr{opacity:0;pointer-events:none}
+
+.wrap{max-width:720px;margin:0 auto;padding:0 18px}
+.eye{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.eye i{width:7px;height:7px;border-radius:50%;background:var(--acc)}
+.eye b{font-weight:400;color:var(--soft)}
+
+/* hero */
+.hero{position:relative;margin:14px 0 0;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:#9fc0e6}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.hero img.on{opacity:1}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55));pointer-events:none}
+.hero .cap{position:absolute;left:20px;right:20px;bottom:20px;z-index:1;color:#fff}
+.hero h1{font-size:min(48px,11.5vw);line-height:1;margin:0;font-style:italic;letter-spacing:-.01em;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.hero p{margin:8px 0 0;font-size:16px;letter-spacing:.02em;opacity:.9}
+.dots{position:absolute;right:16px;top:16px;z-index:1;display:flex;gap:6px}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45);transition:background .3s ease,width .3s ease}
+.dots i.on{background:#fff;width:16px;border-radius:3px}
+
+/* about */
+section.blk{padding:72px 0 8px}
+.about p:not(.eye){font-family:'IM Fell English',Georgia,serif;font-size:clamp(25px,6.4vw,40px);line-height:1.28;margin:0}
+.about p em{color:var(--acc)}
+
+/* works carousel */
+.wh{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:20px}
+.wh h2{font-size:clamp(28px,7.2vw,44px);line-height:1.05;margin:0}
+.arrows{display:flex;gap:6px;flex:none}
+.arrows button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.arrows button:hover{border-color:var(--fg)}
+.arrows svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -18px;padding:0 18px 4px;scroll-padding:0 18px}
+.rail::-webkit-scrollbar{display:none}
+.wcard{flex:0 0 84%;scroll-snap-align:start;text-decoration:none;color:var(--fg);display:block}
+.wf{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--card);border:1px solid var(--line);transition:transform .35s ease}
+.wcard:hover .wf{transform:scale(.985)}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
+.ph b{font-family:'IM Fell English',Georgia,serif;font-weight:400;font-size:clamp(26px,7vw,40px);line-height:1}
+.ph span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-top:8px}
+.live{position:absolute;inset:0;overflow:hidden;background:#fff}
+.live iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;pointer-events:none;opacity:0;transition:opacity .45s ease;background:#fff}
+.live iframe.on{opacity:1}
+.wc{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:10px}
+.wc b{font-family:'IM Fell English',Georgia,serif;font-weight:400;font-size:21px}
+.wc span{color:var(--muted);font-size:14px}
+.wc small{display:block;color:var(--muted);font-size:13px;margin-top:1px}
+
+/* playground bento */
+.bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:120px;gap:10px}
+.tile{position:relative;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--fg);display:block}
+.tile.t1{grid-row:span 2}
+.tile.t2{grid-column:span 2;grid-row:span 2}
+.tile .tl{position:absolute;left:10px;bottom:10px;z-index:2;font-size:12px;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);max-width:calc(100% - 20px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile:hover .tl{background:var(--fg);color:var(--bg)}
+
+/* experience */
+.xl{border-top:1px solid var(--line);margin-top:6px}
+.xr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.xr .rl{font-family:'IM Fell English',Georgia,serif;font-size:23px;line-height:1.15}
+.xr .co{display:block;color:var(--muted);font-size:15px;margin-top:4px}
+.xr .yr{color:var(--muted);font-size:14px;white-space:nowrap;padding-top:5px}
+
+/* skills */
+.ts h3{font-size:26px;margin:0 0 10px}
+.ts p{margin:0 0 30px;color:var(--muted);font-size:18px;line-height:1.7}
+.ts p .d{color:var(--soft);padding:0 2px}
+
+/* footer gimmick: doodle pad */
+.doodle{margin-top:72px}
+.pad{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#fbfaf6;aspect-ratio:16/10;touch-action:none;cursor:crosshair}
+html.dark .pad{background:#1a1b1e}
+.pad canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pad .hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IM Fell English',Georgia,serif;font-style:italic;font-size:clamp(20px,5vw,30px);color:var(--soft);pointer-events:none;transition:opacity .3s ease}
+.pad.used .hint{opacity:0}
+.tools{display:flex;align-items:center;gap:8px;margin-top:10px}
+.sw{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg);box-shadow:0 0 0 1px var(--line);cursor:pointer;padding:0}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--fg)}
+.clr{margin-left:auto;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--fg);font:inherit;font-size:14px;cursor:pointer}
+.clr:hover{border-color:var(--fg)}
+
+.foot{margin-top:40px;border-top:1px solid var(--line);padding:18px 0 calc(26px + env(safe-area-inset-bottom))}
+.love{font-family:'IM Fell English',Georgia,serif;font-style:italic;font-size:19px;color:var(--muted);margin:0 0 18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.frow{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.ct{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.soc{display:flex;gap:8px}
+.soc a{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;color:var(--fg);transition:border-color .2s ease,color .2s ease}
+.soc a:hover{border-color:var(--acc);color:var(--acc)}
+.soc svg{width:18px;height:18px;fill:currentColor}
+.copy{text-align:right;font-size:14px;color:var(--muted);line-height:1.4}
+
+/* project + resume views */
+.pv,.doc{padding-top:18px}
+.back{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;margin-left:-10px;border-radius:10px;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--fg)}
+.back svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pv h1,.doc h1{font-size:clamp(38px,10vw,60px);line-height:1.02;margin:20px 0 6px}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--muted);font-size:15px;margin-bottom:24px;flex-wrap:wrap}
+.visit{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 18px;border-radius:999px;background:var(--fg);color:var(--bg);text-decoration:none;font-size:15px;font-weight:500}
+.tp{font-size:18px;line-height:1.65;color:var(--fg)}
+.tp h2{font-size:28px;margin:32px 0 10px}
+.tp p{margin:0 0 16px;color:color-mix(in srgb,var(--fg) 82%,var(--bg))}
+.tp ul{margin:0 0 16px;padding-left:20px;color:color-mix(in srgb,var(--fg) 82%,var(--bg))}
+.tp li{margin:6px 0}
+.soon{display:inline-block;margin-top:6px;padding:6px 12px;border-radius:999px;border:1px dashed var(--line);font-size:14px;color:var(--muted)}
+.dtabs{display:flex;gap:6px;margin:16px 0 0;border-bottom:1px solid var(--line)}
+.dtabs a{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px}
+.dtabs a[aria-current="page"]{color:var(--fg);border-color:var(--acc)}
+.dsub{color:var(--muted);margin:0 0 18px}
+.sheet-prev{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.14);border:1px solid var(--line)}
+.sheet-prev img{display:block;width:100%;height:auto}
+.dl{margin:22px 0 0}
+
+@media (min-width:900px){
+  .wrap{max-width:1160px;padding:0 40px}
+  .hdr{padding:10px 40px}
+  .hero{aspect-ratio:16/8;margin-top:22px;border-radius:26px}
+  .hero .cap{left:40px;bottom:36px}
+  .hero h1{font-size:84px}
+  .hero p{font-size:19px}
+  section.blk{padding:110px 0 8px}
+  .about p{max-width:980px}
+  .rail{margin:0;padding:0 0 4px;scroll-padding:0}
+  .wcard{flex-basis:calc(50% - 7px)}
+  .bento{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:150px;gap:14px}
+  .ts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+  .ts h3{grid-row:1}
+  .ts p{grid-row:2}
+  .doodle{max-width:820px;margin-left:auto;margin-right:auto}
+  .pv,.doc{max-width:900px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero img{transition:none}.wf{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <button class="iconbtn" id="openMenu" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+  <a class="brand" href="#top">Àmúró Gallery</a>
+  <button class="iconbtn mode" id="mode" aria-label="Switch to dark mode">
+    <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18M6.5 18a5.5 5.5 0 0 1 11 0M12 6.5V4M5.6 9.6 3.9 7.9M18.4 9.6l1.7-1.7M8 21h8"></path></svg>
+    <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"></path><path d="M17 3.5v3M15.5 5h3M20.5 8.5v2M19.5 9.5h2"></path></svg>
+  </button>
+</header>
+
+<div class="menu" id="menu" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="scrim" data-close></div>
+  <div class="sheet" id="sheet">
+    <button class="iconbtn" id="closeMenu" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    <nav aria-label="Main">
+      <a href="#about" data-close>Àmúró</a>
+      <a href="#playground" data-close>playground</a>
+      <a href="#works" data-close>projects</a>
+      <a href="https://shop.arstudios.workers.dev" rel="noopener" data-ext>AR Studios <small>↗</small></a>
+      <a href="#resume" data-close>resume</a>
+    </nav>
+  </div>
+</div>
+
+<main id="home">
+  <div class="wrap">
+    <section id="top" aria-label="Home">
+      <div class="hero" id="hero">
+        <img class="on" src="img/campus.webp" srcset="img/campus-s.webp 900w, img/campus.webp 1800w" sizes="(min-width:900px) 1080px, 100vw" alt="" fetchpriority="high">
+        <div class="dots" id="dots" aria-hidden="true"></div>
+        <div class="cap">
+          <h1>Àmúró Ayomiposi</h1>
+          <p>Visual Artist &amp; Design Engineer</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk about" id="about" aria-label="About">
+      <p class="eye"><i aria-hidden="true"></i>About</p>
+      <p>I'm a growing visual artist working on all available mediums, a designer and an engineer too. <em>I build what I craft.</em> I'm also a professional baker.</p>
+    </section>
+
+    <section class="blk" id="works" aria-labelledby="works-h">
+      <p class="eye"><i aria-hidden="true"></i>Selected works <b id="wcount"></b></p>
+      <div class="wh">
+        <h2 id="works-h">Campaigns, case studies &amp; the works</h2>
+        <div class="arrows"><button id="prev" aria-label="Previous project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button><button id="next" aria-label="Next project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></div>
+      </div>
+      <div class="rail" id="rail"></div>
+    </section>
+
+    <section class="blk" id="playground" aria-labelledby="pg-h">
+      <p class="eye"><i aria-hidden="true"></i>Playground</p>
+      <div class="wh"><h2 id="pg-h">Things I've built for fun &amp; friends</h2></div>
+      <div class="bento" id="bento"></div>
+    </section>
+
+    <section class="blk" id="experience" aria-labelledby="exp-h">
+      <p class="eye"><i aria-hidden="true"></i>Experience</p>
+      <h2 class="sr" id="exp-h">Experience</h2>
+      <div class="xl">
+        <div class="xr"><div><span class="rl">Lead Designer</span><span class="co">Monarchs of Gaming eSports</span></div><span class="yr">Oct 2026 — Present</span></div>
+        <div class="xr"><div><span class="rl">Head, Design &amp; Storytelling</span><span class="co">Muniac Studios</span></div><span class="yr">Oct 2026 — Present</span></div>
+        <div class="xr"><div><span class="rl">Design Lead</span><span class="co">Google Developer Groups on Campus, LASU</span></div><span class="yr">Oct 2025 — Nov 2026</span></div>
+      </div>
+    </section>
+
+    <section class="blk ts" id="skills" aria-label="Skills and tools">
+      <h3>Skills</h3>
+      <p>Art &amp; Animation&nbsp;<span class="d">·</span> Creative Direction&nbsp;<span class="d">·</span> Graphic &amp; UI/UX Design&nbsp;<span class="d">·</span> AI &amp; Software Engineering</p>
+      <h3>Tools</h3>
+      <p>Pen &amp; Paper&nbsp;<span class="d">·</span> Canva&nbsp;<span class="d">·</span> Figma&nbsp;<span class="d">·</span> VS Code&nbsp;<span class="d">·</span> GitHub</p>
+    </section>
+
+    <section class="doodle" aria-label="Doodle pad">
+      <p class="eye"><i aria-hidden="true"></i>Before you go</p>
+      <div class="pad" id="pad"><canvas id="cv"></canvas><span class="hint">leave me a doodle</span></div>
+      <div class="tools" id="tools">
+        <button class="sw" style="background:#151513" data-c="#151513" aria-label="Ink" aria-pressed="true"></button>
+        <button class="sw" style="background:#3a6bd6" data-c="#3a6bd6" aria-label="Blue" aria-pressed="false"></button>
+        <button class="sw" style="background:#d9473b" data-c="#d9473b" aria-label="Red" aria-pressed="false"></button>
+        <button class="sw" style="background:#2f9e6a" data-c="#2f9e6a" aria-label="Green" aria-pressed="false"></button>
+        <button class="clr" id="clr">Clear</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<main id="project" hidden>
+  <div class="wrap pv">
+    <a class="back" href="#works" aria-label="Back to projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></a>
+    <div id="pvframe" style="margin-top:12px"></div>
+    <h1 id="pvtitle"></h1>
+    <div class="meta"><span id="pvsub"></span><a class="visit" id="pvlink" href="#" rel="noopener">Visit ↗</a></div>
+    <div class="tp" id="tp"></div>
+  </div>
+</main>
+
+<main id="docview" hidden>
+  <div class="wrap doc">
+    <a class="back" href="#top" aria-label="Back to home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></a>
+    <div class="dtabs" role="navigation" aria-label="Documents"><a href="#resume" id="d-resume">Resume</a><a href="#cover-letter" id="d-cover-letter">Cover letter</a></div>
+    <h1 id="dtitle">Resume</h1>
+    <p class="dsub" id="dsub"></p>
+    <div class="sheet-prev"><img id="dimg" alt="" width="1240" height="1754" decoding="async"></div>
+    <div class="dl"><a class="visit" id="dlink" href="#" download>Download PDF</a></div>
+  </div>
+</main>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <p class="love">— with love, Àmúró &amp; Klaus</p>
+    <div class="frow">
+      <div>
+        <p class="ct">Contact</p>
+        <div class="soc">
+          <a href="https://x.com/Artista08_" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"></path></svg></a>
+          <a href="https://www.linkedin.com/in/ayomiposi-amuro-315776368" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"></path></svg></a>
+          <a href="https://www.instagram.com/artistaamuro" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 4.9a4.9 4.9 0 1 0 0 9.8 4.9 4.9 0 0 0 0-9.8zm0 8.1a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.1-9.4a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"></path></svg></a>
+        </div>
+      </div>
+      <p class="copy">©Àmúró<br>2026</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var root = document.documentElement;
+
+  // Light / dark
+  var meta = document.querySelector('meta[name="theme-color"]'), mode = document.getElementById('mode');
+  function setTheme(dark) {
+    root.classList.toggle('dark', dark);
+    if (meta) meta.setAttribute('content', dark ? '#0d0e10' : '#f6f5f1');
+    mode.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    try { localStorage.setItem('amuro-theme', dark ? 'dark' : 'light'); } catch (e) {}
+  }
+  setTheme(root.classList.contains('dark'));
+  mode.addEventListener('click', function () { setTheme(!root.classList.contains('dark')); });
+
+  // Hero: slow crossfade through the photos
+  (function () {
+    var PICS = ['campus', 'sky', 'lawn', 'big-tree', 'canopy'], hero = document.getElementById('hero'), dots = document.getElementById('dots');
+    var first = hero.querySelector('img'), imgs = [first], k = 0, timer = 0;
+    dots.innerHTML = PICS.map(function (_, i) { return '<i' + (i ? '' : ' class="on"') + '></i>'; }).join('');
+    function add() {
+      PICS.slice(1).forEach(function (p) {
+        var im = new Image(); im.alt = ''; im.decoding = 'async';
+        im.srcset = 'img/' + p + '-s.webp 900w, img/' + p + '.webp 1800w'; im.sizes = first.sizes; im.src = 'img/' + p + '.webp';
+        hero.insertBefore(im, dots); imgs.push(im);
+      });
+    }
+    function next() {
+      var n = (k + 1) % imgs.length;
+      if (!imgs[n].complete) return; // wait until it has arrived
+      imgs[k].classList.remove('on'); imgs[n].classList.add('on');
+      dots.children[k].classList.remove('on'); dots.children[n].classList.add('on'); k = n;
+    }
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    window.addEventListener('load', function () { add(); timer = setInterval(function () { if (!document.hidden) next(); }, 5200); });
+  })();
+
+  // Live previews of sites (scaled from a desktop width), loaded only near the screen
+  var conn = navigator.connection || {};
+  var LIVE = window.self === window.top && !conn.saveData && !/(^|-)2g$/.test(conn.effectiveType || '');
+  var VW = 1280;
+  function swap(f, on) {
+    var n = f.cloneNode(false); n.classList.remove('on');
+    if (on) { n.setAttribute('src', f.getAttribute('data-src')); n.addEventListener('load', function () { n.classList.add('on'); }); }
+    else n.removeAttribute('src');
+    f.parentNode.replaceChild(n, f); fit(n.parentNode);
+  }
+  function fit(box) {
+    var f = box.querySelector('iframe'); if (!f) return;
+    var w = box.clientWidth, h = box.clientHeight; if (!w) return;
+    var s = w / VW; f.style.width = VW + 'px'; f.style.height = Math.ceil(h / s) + 'px'; f.style.transform = 'scale(' + s + ')';
+  }
+  var near = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      var f = e.target.querySelector('iframe'); if (!f) return;
+      if (e.isIntersecting) { if (!f.getAttribute('src')) swap(f, true); }
+      else if (f.getAttribute('src')) swap(f, false);
+    });
+  }, { rootMargin: '400px' }) : null;
+  function live(url, title) {
+    return LIVE ? '<div class="live"><iframe data-src="' + esc(url) + '" title="' + esc(title) + ' — live preview" tabindex="-1" aria-hidden="true" sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer"></iframe></div>' : '';
+  }
+  function watch(rootEl) {
+    rootEl.querySelectorAll('.live').forEach(function (box) {
+      if (box._w) return; box._w = 1; fit(box);
+      if (near) near.observe(box); else swap(box.querySelector('iframe'), true);
+    });
+  }
+
+  // Selected works
+  var W = [
+    { id: 'lasutechx', name: 'LASUTECHX 5.0', kind: 'Event design', year: '2026', link: '', pending: 'Figma file coming soon',
+      art: 'background:linear-gradient(135deg,#0f1b3d,#3a6bd6 60%,#9cc2ff);color:#fff',
+      text: [['h', 'Overview'], ['p', 'Design for LASUTECHX 5.0, the 2026 edition. The full case study and the Figma file are on their way.']] },
+    { id: 'ar-studios', name: 'AR Studios', kind: 'Brand, product & build', year: '2026', link: 'https://shop.arstudios.workers.dev',
+      text: [['h', 'Overview'], ['p', 'AR Studios is my own shop for the art, illustrations and stories I make, set up to fund a laptop so I can move my sketches from paper to screen. Every piece sells for ₦1,000, and a progress tracker shows how close the goal is.'],
+        ['h', 'Challenge'], ['p', 'Sell hand-drawn work online without it looking like a phone photo of paper, take real payments, and keep the whole thing simple enough to run alone from a phone.'],
+        ['h', 'Solution'], ['ul', ['A dark, blue-toned shop with a gallery of Arts, Illustrations, Stories and Tools.', 'Sketch Studio built into the admin side, which turns photos of drawings into clean line art on paper and frame mockups before they go up.', 'Checkout through Paystack, with Supabase behind the scenes, and a hidden admin page for managing the gallery.', 'Games and tools in the gallery open by negotiation rather than a fixed price.']]] },
+    { id: 'mog-branding', name: 'MOG eSports Branding', kind: 'Brand identity', year: '2026', link: '', pending: 'Canva file coming soon',
+      art: 'background:radial-gradient(120% 90% at 20% 10%,#5b2bd6,#14102a 70%);color:#f5e9ff',
+      text: [['h', 'Overview'], ['p', 'Brand identity for Monarchs of Gaming eSports, where I lead design. The full case study and the Canva file are on their way.']] },
+    { id: 'siwes-atlas', name: 'SIWES Atlas', kind: 'Product', year: '2026', link: 'https://siwes-atlas.vercel.app/',
+      text: [['h', 'Overview'], ['p', 'SIWES Atlas is a public directory for SIWES, the industrial training scheme Nigerian tertiary students go through. It puts vetted placements in one place, built as an entry to the OPay Challenge 2026.'],
+        ['h', 'Challenge'], ['p', 'Finding a placement usually means word of mouth and long silences after applying. Students can\'t see where the open slots are, whether a role is paid, or how long a company takes to reply.'],
+        ['h', 'Solution'], ['ul', ['Separate gateways for students and companies.', 'An interactive globe explorer, starting with Nigeria.', 'Postal-stamp cards per state with open slots, stipends and response times.', 'A workspace that tracks each application.']]] }
+  ];
+  function wframe(w) {
+    return '<div class="wf">' + (w.link ? live(w.link, w.name) : '') + (w.art ? '<div class="ph" style="' + w.art + '"><b>' + esc(w.name) + '</b><span>' + esc(w.kind) + '</span></div>' : '') + '</div>';
+  }
+  document.getElementById('rail').innerHTML = W.map(function (w) {
+    return '<a class="wcard" href="#p-' + w.id + '" aria-label="' + esc(w.name) + ' — open project">' + wframe(w) +
+      '<div class="wc"><span><b>' + esc(w.name) + '</b><small>' + esc(w.kind) + '</small></span><span>' + esc(w.year) + '</span></div></a>';
+  }).join('');
+  document.getElementById('wcount').textContent = String(W.length).padStart(2, '0');
+  var rail = document.getElementById('rail');
+  function by(d) { var c = rail.querySelector('.wcard'); rail.scrollBy({ left: d * (c ? c.offsetWidth + 14 : 300), behavior: 'smooth' }); }
+  document.getElementById('prev').addEventListener('click', function () { by(-1); });
+  document.getElementById('next').addEventListener('click', function () { by(1); });
+
+  // Playground
+  var G = [
+    { n: 'Studio AR — sketch to line art', u: 'https://studioar.vercel.app', c: 't2' },
+    { n: 'eSports results generator', u: 'https://esportsresultsgen.vercel.app', c: 't1' },
+    { n: 'Ojuju Calabar', u: 'https://ojujucalabar.vercel.app', c: 't1' },
+    { n: 'Muniac — portfolio', u: 'https://muniac.vercel.app', c: '' },
+    { n: 'Chinaza — portfolio', u: 'https://chinazaa.vercel.app', c: '' },
+    { n: 'Klonex — portfolio', u: 'https://klonexofficial.vercel.app', c: 't2' }
+  ];
+  document.getElementById('bento').innerHTML = G.map(function (g) {
+    return '<a class="tile ' + g.c + '" href="' + esc(g.u) + '" rel="noopener" target="_blank">' + live(g.u, g.n) + '<span class="tl">' + esc(g.n) + ' ↗</span></a>';
+  }).join('');
+  watch(document);
+
+  // Doodle pad
+  (function () {
+    var pad = document.getElementById('pad'), cv = document.getElementById('cv'), ctx = cv.getContext('2d'), color = '#151513', drawing = false, lx = 0, ly = 0;
+    function size() {
+      var r = pad.getBoundingClientRect(), d = Math.min(2, window.devicePixelRatio || 1);
+      var old = cv.width ? ctx.getImageData(0, 0, cv.width, cv.height) : null;
+      cv.width = Math.round(r.width * d); cv.height = Math.round(r.height * d); ctx.setTransform(d, 0, 0, d, 0, 0);
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      if (old) ctx.putImageData(old, 0, 0);
+    }
+    function pos(e) { var r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; }
+    pad.addEventListener('pointerdown', function (e) { drawing = true; pad.setPointerCapture(e.pointerId); var p = pos(e); lx = p[0]; ly = p[1]; pad.classList.add('used'); dot(p); });
+    pad.addEventListener('pointermove', function (e) {
+      if (!drawing) return;
+      var p = pos(e), pr = e.pressure && e.pointerType === 'pen' ? e.pressure : .5;
+      ctx.strokeStyle = (color === '#151513' && root.classList.contains('dark')) ? '#f1f0ec' : color;
+      ctx.lineWidth = 1.5 + pr * 3.2;
+      ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(p[0], p[1]); ctx.stroke(); lx = p[0]; ly = p[1];
+    });
+    function dot(p) { ctx.fillStyle = (color === '#151513' && root.classList.contains('dark')) ? '#f1f0ec' : color; ctx.beginPath(); ctx.arc(p[0], p[1], 1.6, 0, 7); ctx.fill(); }
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (t) { pad.addEventListener(t, function () { drawing = false; }); });
+    document.getElementById('tools').addEventListener('click', function (e) {
+      var b = e.target.closest('.sw'); if (!b) return;
+      color = b.getAttribute('data-c');
+      this.querySelectorAll('.sw').forEach(function (s) { s.setAttribute('aria-pressed', s === b ? 'true' : 'false'); });
+    });
+    document.getElementById('clr').addEventListener('click', function () { ctx.clearRect(0, 0, cv.width, cv.height); pad.classList.remove('used'); });
+    size();
+    var t = 0; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(size, 150); });
+  })();
+
+  // Overlays get their own history step, so the phone's back button closes them first
+  var layer = null;
+  function pushLayer(n) { if (layer) return; layer = n; try { history.pushState({ layer: n }, ''); } catch (e) {} }
+  function dropLayer(n) { if (layer !== n) return; layer = null; if (history.state && history.state.layer === n) history.back(); }
+  window.addEventListener('popstate', function () { if (!layer) return; layer = null; setMenu(false); });
+
+  // Views
+  var home = document.getElementById('home'), pv = document.getElementById('project'), dv = document.getElementById('docview');
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  var homeY = 0;
+  function jump(y) { window.scrollTo({ top: y, left: 0, behavior: 'instant' }); }
+  function only(v) { if (!home.hidden && v !== home) homeY = window.scrollY; [home, pv, dv].forEach(function (m) { m.hidden = m !== v; }); }
+  function body(t) {
+    return t.map(function (x) {
+      if (x[0] === 'h') return '<h2>' + esc(x[1]) + '</h2>';
+      if (x[0] === 'ul') return '<ul>' + x[1].map(function (li) { return '<li>' + esc(li) + '</li>'; }).join('') + '</ul>';
+      return '<p>' + esc(x[1]) + '</p>';
+    }).join('');
+  }
+  function route() {
+    var h = (location.hash || '').slice(1);
+    if (h === 'resume' || h === 'cover-letter') {
+      var cv = h === 'resume', name = cv ? 'Amuro Ayomiposi Resume' : 'Amuro Ayomiposi Cover Letter';
+      document.getElementById('dtitle').textContent = cv ? 'Resume' : 'Cover letter';
+      document.getElementById('dsub').textContent = 'Preview. Download the PDF below.';
+      var im = document.getElementById('dimg'); im.src = cv ? 'docs/cv-preview.webp' : 'docs/cover-letter-preview.webp'; im.alt = name;
+      var dl = document.getElementById('dlink'); dl.href = 'docs/' + encodeURIComponent(name) + '.pdf'; dl.setAttribute('download', name + '.pdf');
+      document.getElementById('d-resume').setAttribute('aria-current', cv ? 'page' : 'false');
+      document.getElementById('d-cover-letter').setAttribute('aria-current', cv ? 'false' : 'page');
+      document.title = (cv ? 'Resume' : 'Cover letter') + ' — Àmúró';
+      only(dv); jump(0); return;
+    }
+    var m = h.indexOf('p-') === 0 ? W.filter(function (w) { return 'p-' + w.id === h; })[0] : null;
+    if (m) {
+      document.getElementById('pvframe').innerHTML = wframe(m);
+      document.getElementById('pvtitle').textContent = m.name;
+      document.getElementById('pvsub').textContent = m.kind + ' · ' + m.year;
+      var lk = document.getElementById('pvlink'); if (m.link) { lk.href = m.link; lk.hidden = false; } else lk.hidden = true;
+      document.getElementById('tp').innerHTML = body(m.text) + (m.pending ? '<span class="soon">' + esc(m.pending) + '</span>' : '');
+      document.title = m.name + ' — Àmúró';
+      only(pv); jump(0); watch(pv); return;
+    }
+    document.title = 'Àmúró Ayomiposi — Visual Artist & Design Engineer';
+    var was = home.hidden; only(home);
+    var el = h && document.getElementById(h);
+    if (el) { if (was) requestAnimationFrame(function () { el.scrollIntoView({ behavior: 'instant', block: 'start' }); }); }
+    else if (was) requestAnimationFrame(function () { jump(homeY); });
+    requestAnimationFrame(function () { document.querySelectorAll('.live').forEach(fit); });
+  }
+  window.addEventListener('hashchange', route);
+  route();
+  var rf = 0; window.addEventListener('resize', function () { cancelAnimationFrame(rf); rf = requestAnimationFrame(function () { document.querySelectorAll('.live').forEach(fit); }); });
+
+  // Menu
+  var menu = document.getElementById('menu'), ob = document.getElementById('openMenu');
+  function setMenu(on) {
+    ob.setAttribute('aria-expanded', on ? 'true' : 'false');
+    document.body.classList.toggle('lock', on); document.body.classList.toggle('menu-on', on);
+    if (on) { pushLayer('menu'); menu.hidden = false; requestAnimationFrame(function () { menu.classList.add('show'); document.getElementById('closeMenu').focus({ preventScroll: true }); }); }
+    else { dropLayer('menu'); menu.classList.remove('show'); setTimeout(function () { if (!menu.classList.contains('show')) menu.hidden = true; }, 440); if (menu.contains(document.activeElement)) ob.focus({ preventScroll: true }); }
+  }
+  ob.addEventListener('click', function () { setMenu(true); });
+  document.getElementById('closeMenu').addEventListener('click', function () { setMenu(false); });
+  menu.querySelectorAll('[data-close]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var href = a.getAttribute('href');
+      if (!href || layer !== 'menu') { setMenu(false); return; }
+      e.preventDefault(); layer = null; setMenu(false);
+      try { history.replaceState(null, '', href); } catch (er) { location.hash = href; return; }
+      route();
+      var el = document.getElementById(href.slice(1));
+      if (el && !home.hidden) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
+</body>
+</html>
