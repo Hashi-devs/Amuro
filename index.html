@@ -222,7 +222,7 @@ html.dark .pad{background:#1a1b1e}
 <header class="hdr">
   <button class="iconbtn" id="openMenu" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
   <a class="brand" href="#top">Àmúró</a>
-  <nav class="hnav" aria-label="Main"><a href="#about">Àmúró</a><a href="#playground">Playground</a><a href="#gallery">Gallery</a><a href="https://shop.arstudios.workers.dev" rel="noopener">AR Studios ↗</a><a href="#resume">Resume</a></nav>
+  <nav class="hnav" aria-label="Main"><a href="#playground">Playground</a><a href="#gallery">Gallery</a><a href="https://shop.arstudios.workers.dev" rel="noopener">AR Studios ↗</a><a href="#resume">Resume</a></nav>
   <button class="iconbtn mode" id="mode" aria-label="Switch to dark mode">
     <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18M6.5 18a5.5 5.5 0 0 1 11 0M12 6.5V4M5.6 9.6 3.9 7.9M18.4 9.6l1.7-1.7M8 21h8"></path></svg>
     <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"></path><path d="M17 3.5v3M15.5 5h3M20.5 8.5v2M19.5 9.5h2"></path></svg>
@@ -270,7 +270,7 @@ html.dark .pad{background:#1a1b1e}
 
     <section class="blk" id="playground" aria-labelledby="pg-h">
       <p class="eye"><i aria-hidden="true"></i>Playground</p>
-      <div class="wh"><h2 id="pg-h">Things I build for fun</h2></div>
+      <div class="wh"><h2 id="pg-h">Things I've built for fun &amp; friends</h2></div>
       <div class="bento" id="bento"></div>
     </section>
 
@@ -344,7 +344,6 @@ html.dark .pad{background:#1a1b1e}
         <div class="soc">
           <a href="https://x.com/Artista08_" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"></path></svg></a>
           <a href="https://www.linkedin.com/in/ayomiposi-amuro-315776368" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"></path></svg></a>
-          <a href="https://www.instagram.com/artistaamuro" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 4.9a4.9 4.9 0 1 0 0 9.8 4.9 4.9 0 0 0 0-9.8zm0 8.1a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.1-9.4a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"></path></svg></a>
         </div>
       </div>
       <p class="copy">©Àmúró<br>2026</p>
@@ -459,7 +458,13 @@ html.dark .pad{background:#1a1b1e}
   document.getElementById('wcount').textContent = String(W.length).padStart(2, '0');
 
   // Gallery: [file, width, height]; rows on desktop are filled so each row is the same height
-  var GAL = [[['campus', 1800, 1356], ['big-tree', 1356, 1800]], [['sky', 1800, 1356], ['lawn', 1800, 1356], ['canopy', 1800, 1356]]];
+  var GAL = [
+    [['g/living-room', 1600, 1180], ['g/self-portrait-colour', 844, 1000]],
+    [['g/red-hair', 1000, 1000], ['g/self-portrait-lines', 1075, 1100], ['g/cap-and-glasses', 828, 1100]],
+    [['g/long-hair-lines', 765, 919], ['g/glasses-sketch', 1600, 900]],
+    [['campus', 1800, 1356], ['big-tree', 1356, 1800]],
+    [['sky', 1800, 1356], ['lawn', 1800, 1356], ['canopy', 1800, 1356]]
+  ];
   var galBuilt = false;
   function buildGallery() {
     if (galBuilt) return; galBuilt = true;
