@@ -89,6 +89,10 @@ section.blk{padding:72px 0 8px}
 .rail::-webkit-scrollbar{display:none}
 .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
 .gcol{display:flex;flex-direction:column;gap:20px;min-width:0}
+.grid2.one{grid-template-columns:minmax(0,1fr)}
+.grid2.one .gcol{gap:28px}
+.grid2.one .wc{font-size:14px}
+.grid2.one .wc b{font-size:20px}
 .wcard{text-decoration:none;color:var(--fg);display:block;min-width:0}
 .wf{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:var(--card);border:1px solid var(--line);transition:transform .35s ease}
 .wcard:hover .wf{transform:scale(.985)}
@@ -104,7 +108,12 @@ section.blk{padding:72px 0 8px}
 .wc .k{color:var(--muted);margin-left:auto;text-align:right}
 
 /* playground bento */
-.bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:120px;gap:10px}
+.bento{display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
+.pgf{position:relative;display:block;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:var(--card);border:1px solid var(--line)}
+.pgc h3{font-size:22px;margin:12px 0 4px}
+.pgc p{margin:0 0 8px;color:var(--muted);font-size:15px;line-height:1.55}
+.pgv{font-size:14px;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+.pgv:hover{border-color:var(--fg)}
 .tile{position:relative;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--fg);display:block}
 .tile.t1{grid-row:span 2}
 .tile.t2{grid-column:span 2;grid-row:span 2}
@@ -147,6 +156,16 @@ html.dark .pad{background:#1a1b1e}
 .soc svg{width:18px;height:18px;fill:currentColor}
 .copy{text-align:right;font-size:14px;color:var(--muted);line-height:1.4}
 
+/* gallery: one per row on phones, justified rows on desktop */
+.gv{padding-top:18px}
+.gv h1{font-size:clamp(38px,10vw,60px);line-height:1.02;margin:20px 0 6px}
+.gsub{color:var(--muted);margin:0 0 22px}
+.gal{display:flex;flex-direction:column;gap:12px}
+.grow{display:contents}
+.gi{display:block;width:100%;border-radius:16px;overflow:hidden;background:var(--card)}
+.gi img{display:block;width:100%;height:100%;object-fit:cover}
+@media (min-width:700px){.grow{display:flex;gap:10px}.gal{gap:10px}.gi{flex-basis:0;border-radius:12px}}
+
 /* project + resume views */
 .pv,.doc{padding-top:18px}
 .back{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;margin-left:-10px;border-radius:10px;color:var(--muted);text-decoration:none}
@@ -188,7 +207,7 @@ html.dark .pad{background:#1a1b1e}
   .grid2{gap:16px}
   .gcol{gap:30px}
   .wc{flex-wrap:nowrap}
-  .bento{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:150px;gap:14px}
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 16px}
   .ts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
   .ts h3{grid-row:1}
   .ts p{grid-row:2}
@@ -203,7 +222,7 @@ html.dark .pad{background:#1a1b1e}
 <header class="hdr">
   <button class="iconbtn" id="openMenu" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
   <a class="brand" href="#top">Àmúró</a>
-  <nav class="hnav" aria-label="Main"><a href="#about">Àmúró</a><a href="#playground">Playground</a><a href="#works">Gallery</a><a href="https://shop.arstudios.workers.dev" rel="noopener">AR Studios ↗</a><a href="#resume">Resume</a></nav>
+  <nav class="hnav" aria-label="Main"><a href="#about">Àmúró</a><a href="#playground">Playground</a><a href="#gallery">Gallery</a><a href="https://shop.arstudios.workers.dev" rel="noopener">AR Studios ↗</a><a href="#resume">Resume</a></nav>
   <button class="iconbtn mode" id="mode" aria-label="Switch to dark mode">
     <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18M6.5 18a5.5 5.5 0 0 1 11 0M12 6.5V4M5.6 9.6 3.9 7.9M18.4 9.6l1.7-1.7M8 21h8"></path></svg>
     <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"></path><path d="M17 3.5v3M15.5 5h3M20.5 8.5v2M19.5 9.5h2"></path></svg>
@@ -217,7 +236,7 @@ html.dark .pad{background:#1a1b1e}
     <nav aria-label="Main">
       <a href="#about" data-close>Àmúró</a>
       <a href="#playground" data-close>Playground</a>
-      <a href="#works" data-close>Gallery</a>
+      <a href="#gallery" data-close>Gallery</a>
       <a href="https://shop.arstudios.workers.dev" rel="noopener" data-ext>AR Studios <small>↗</small></a>
       <a href="#resume" data-close>Resume</a>
     </nav>
@@ -283,6 +302,15 @@ html.dark .pad{background:#1a1b1e}
         <button class="clr" id="clr">Clear</button>
       </div>
     </section>
+  </div>
+</main>
+
+<main id="galleryview" hidden>
+  <div class="wrap gv">
+    <a class="back" href="#top" aria-label="Back to home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></a>
+    <h1>Gallery</h1>
+    <p class="gsub">Drawings, photos and everything else I make along the way.</p>
+    <div class="gal" id="gal"></div>
   </div>
 </main>
 
@@ -413,20 +441,42 @@ html.dark .pad{background:#1a1b1e}
   function wframe(w) {
     return '<div class="wf">' + (w.link ? live(w.link, w.name) : '') + (w.art ? '<div class="ph" style="' + w.art + '"><b>' + esc(w.name) + '</b><span>' + esc(w.kind) + '</span></div>' : '') + '</div>';
   }
-  var SH = ['4/4.6', '16/11', '16/11', '4/4.6'], cols = ['', ''];
-  W.forEach(function (w, i) {
-    cols[i % 2] += '<a class="wcard" href="#p-' + w.id + '" aria-label="' + esc(w.name) + ' — open project">' + wframe(w).replace('<div class="wf">', '<div class="wf" style="aspect-ratio:' + SH[i % 4] + '">') +
+  var SH = ['4/4.6', '16/11', '16/11', '4/4.6'], wide = window.matchMedia('(min-width:900px)');
+  function wcard(w, i, two) {
+    return '<a class="wcard" href="#p-' + w.id + '" aria-label="' + esc(w.name) + ' — open project">' + wframe(w).replace('<div class="wf">', '<div class="wf" style="aspect-ratio:' + (two ? SH[i % 4] : '4/3') + '">') +
       '<div class="wc"><b>' + esc(w.name) + '</b><span class="y">© ' + esc(w.year) + '</span><span class="k">' + esc(w.kind) + '</span></div></a>';
-  });
-  document.getElementById('rail').innerHTML = '<div class="gcol">' + cols[0] + '</div><div class="gcol">' + cols[1] + '</div>';
+  }
+  function renderWorks() {
+    var two = wide.matches, rail = document.getElementById('rail');
+    if (rail._two === two) return; rail._two = two;
+    if (two) { var cols = ['', '']; W.forEach(function (w, i) { cols[i % 2] += wcard(w, i, true); }); rail.innerHTML = '<div class="gcol">' + cols[0] + '</div><div class="gcol">' + cols[1] + '</div>'; }
+    else rail.innerHTML = '<div class="gcol">' + W.map(function (w, i) { return wcard(w, i, false); }).join('') + '</div>';
+    rail.classList.toggle('one', !two);
+    watch(rail);
+  }
+  renderWorks();
+  if (wide.addEventListener) wide.addEventListener('change', renderWorks);
   document.getElementById('wcount').textContent = String(W.length).padStart(2, '0');
+
+  // Gallery: [file, width, height]; rows on desktop are filled so each row is the same height
+  var GAL = [[['campus', 1800, 1356], ['big-tree', 1356, 1800]], [['sky', 1800, 1356], ['lawn', 1800, 1356], ['canopy', 1800, 1356]]];
+  var galBuilt = false;
+  function buildGallery() {
+    if (galBuilt) return; galBuilt = true;
+    document.getElementById('gal').innerHTML = GAL.map(function (row) {
+      return '<div class="grow">' + row.map(function (g) {
+        return '<div class="gi" style="flex-grow:' + (g[1] / g[2]).toFixed(4) + ';aspect-ratio:' + g[1] + '/' + g[2] + '"><img src="img/' + g[0] + '-s.webp" srcset="img/' + g[0] + '-s.webp 900w, img/' + g[0] + '.webp 1800w" sizes="(min-width:700px) 50vw, 100vw" alt="" loading="lazy" decoding="async" width="' + g[1] + '" height="' + g[2] + '"></div>';
+      }).join('') + '</div>';
+    }).join('');
+  }
 
   // Playground
   var G = [
-    { n: 'Sketch Studio — sketch to line art', u: 'https://studioar.vercel.app', c: 'solo' }
+    { n: 'Sketch Studio', u: 'https://studioar.vercel.app', d: 'Turns photos of my drawings into clean line art on textured paper or in frame mockups, keeping every line weight. It started inside the AR Studios admin, and now it has a home of its own.' }
   ];
   document.getElementById('bento').innerHTML = G.map(function (g) {
-    return '<a class="tile ' + g.c + '" href="' + esc(g.u) + '" rel="noopener" target="_blank">' + live(g.u, g.n) + '<span class="tl">' + esc(g.n) + ' ↗</span></a>';
+    return '<article class="pgc"><a class="pgf" href="' + esc(g.u) + '" rel="noopener" target="_blank" tabindex="-1" aria-hidden="true">' + live(g.u, g.n) + '</a>' +
+      '<h3>' + esc(g.n) + '</h3><p>' + esc(g.d) + '</p><a class="pgv" href="' + esc(g.u) + '" rel="noopener" target="_blank">Visit website ↗</a></article>';
   }).join('');
   watch(document);
 
@@ -468,11 +518,11 @@ html.dark .pad{background:#1a1b1e}
   window.addEventListener('popstate', function () { if (!layer) return; layer = null; setMenu(false); });
 
   // Views
-  var home = document.getElementById('home'), pv = document.getElementById('project'), dv = document.getElementById('docview');
+  var home = document.getElementById('home'), pv = document.getElementById('project'), dv = document.getElementById('docview'), gv = document.getElementById('galleryview');
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   var homeY = 0;
   function jump(y) { window.scrollTo({ top: y, left: 0, behavior: 'instant' }); }
-  function only(v) { if (!home.hidden && v !== home) homeY = window.scrollY; [home, pv, dv].forEach(function (m) { m.hidden = m !== v; }); }
+  function only(v) { if (!home.hidden && v !== home) homeY = window.scrollY; [home, pv, dv, gv].forEach(function (m) { m.hidden = m !== v; }); }
   function body(t) {
     return t.map(function (x) {
       if (x[0] === 'h') return '<h2>' + esc(x[1]) + '</h2>';
@@ -482,6 +532,7 @@ html.dark .pad{background:#1a1b1e}
   }
   function route() {
     var h = (location.hash || '').slice(1);
+    if (h === 'gallery') { buildGallery(); document.title = 'Gallery — Àmúró'; only(gv); jump(0); return; }
     if (h === 'resume' || h === 'cover-letter') {
       var cv = h === 'resume', name = cv ? 'Amuro Ayomiposi Resume' : 'Amuro Ayomiposi Cover Letter';
       document.getElementById('dtitle').textContent = cv ? 'Resume' : 'Cover letter';
