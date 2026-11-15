@@ -12,7 +12,9 @@
 <meta property="og:url" content="https://amuroayomiposi.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f6f5f1">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233a6bd6'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-style='italic' font-size='20' fill='%23fff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="img/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="img/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="img/favicon-192.png">
 <link rel="preload" href="img/campus-s.webp" as="image" media="(max-width:699px)">
 <link rel="preload" href="img/campus.webp" as="image" media="(min-width:700px)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,14 +149,19 @@ html.dark .pad{background:#1a1b1e}
 .clr:hover{border-color:var(--fg)}
 
 .foot{margin-top:40px;border-top:1px solid var(--line);padding:18px 0 calc(26px + env(safe-area-inset-bottom))}
-.love{font-family:'IM Fell English',Georgia,serif;font-style:italic;font-size:19px;color:var(--muted);margin:0 0 18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.love{font-family:'IM Fell English',Georgia,serif;font-size:19px;color:var(--muted);margin:0 0 18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .frow{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
 .ct{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
 .soc{display:flex;gap:8px}
 .soc a{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;color:var(--fg);transition:border-color .2s ease,color .2s ease}
 .soc a:hover{border-color:var(--acc);color:var(--acc)}
 .soc svg{width:18px;height:18px;fill:currentColor}
-.copy{text-align:right;font-size:14px;color:var(--muted);line-height:1.4}
+.copy{text-align:right;font-size:14px;color:var(--muted);line-height:1.4;margin:0;white-space:nowrap}
+.soc svg.ln{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;width:20px;height:20px}
+.bigmail{display:block;text-decoration:none;color:var(--soft);text-align:center;margin:34px 0 0;padding:0 14px;font-family:'Geist',system-ui,sans-serif;font-weight:500;letter-spacing:-.06em;line-height:.98;font-size:clamp(46px,14.6vw,96px);transition:color .2s ease}
+.bigmail:hover{color:var(--fg)}
+.bigmail span{display:inline-block}
+@media (min-width:900px){.bigmail{white-space:nowrap;margin-top:48px;padding:0 8px}}
 
 /* gallery: one per row on phones, justified rows on desktop */
 .gv{padding-top:18px}
@@ -342,13 +349,15 @@ html.dark .pad{background:#1a1b1e}
       <div>
         <p class="ct">Contact</p>
         <div class="soc">
+          <a href="mailto:amuro.p04@gmail.com" aria-label="Email amuro.p04@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true" class="ln"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M4 7l8 6 8-6"></path></svg></a>
           <a href="https://x.com/Artista08_" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"></path></svg></a>
           <a href="https://www.linkedin.com/in/ayomiposi-amuro-315776368" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"></path></svg></a>
         </div>
       </div>
-      <p class="copy">©Àmúró<br>2026</p>
+      <p class="copy">© 2026 Àmúró</p>
     </div>
   </div>
+  <a class="bigmail" id="bigmail" href="mailto:amuro.p04@gmail.com"><span>amuro.p04@<wbr>gmail.com</span></a>
 </footer>
 
 <script>
@@ -459,11 +468,9 @@ html.dark .pad{background:#1a1b1e}
 
   // Gallery: [file, width, height]; rows on desktop are filled so each row is the same height
   var GAL = [
-    [['g/living-room', 1600, 1180], ['g/self-portrait-colour', 844, 1000]],
-    [['g/red-hair', 1000, 1000], ['g/self-portrait-lines', 1075, 1100], ['g/cap-and-glasses', 828, 1100]],
-    [['g/long-hair-lines', 765, 919], ['g/glasses-sketch', 1600, 900]],
-    [['campus', 1800, 1356], ['big-tree', 1356, 1800]],
-    [['sky', 1800, 1356], ['lawn', 1800, 1356], ['canopy', 1800, 1356]]
+    [['g/self-portrait-colour', 844, 1000], ['g/cap-and-glasses', 828, 1100], ['big-tree', 1356, 1800]],
+    [['campus', 1800, 1356], ['canopy', 1800, 1356]],
+    [['sky', 1800, 1356], ['lawn', 1800, 1356]]
   ];
   var galBuilt = false;
   function buildGallery() {
@@ -569,6 +576,20 @@ html.dark .pad{background:#1a1b1e}
   window.addEventListener('hashchange', route);
   route();
   var rf = 0; window.addEventListener('resize', function () { cancelAnimationFrame(rf); rf = requestAnimationFrame(function () { document.querySelectorAll('.live').forEach(fit); }); });
+
+  // Footer email: one line across the full width on desktop; wraps at the @ on phones
+  (function () {
+    var a = document.getElementById('bigmail'), t = a.firstChild, wide = window.matchMedia('(min-width:900px)');
+    function fitMail() {
+      if (!wide.matches) { a.style.fontSize = ''; return; }
+      a.style.fontSize = '100px';
+      var w = t.getBoundingClientRect().width;
+      if (w) a.style.fontSize = (100 * (document.documentElement.clientWidth - 24) / w) + 'px';
+    }
+    fitMail();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitMail);
+    var ft = 0; window.addEventListener('resize', function () { cancelAnimationFrame(ft); ft = requestAnimationFrame(fitMail); });
+  })();
 
   // Menu
   var menu = document.getElementById('menu'), ob = document.getElementById('openMenu');
