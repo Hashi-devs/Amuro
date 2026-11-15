@@ -38,6 +38,8 @@ img{max-width:100%}
 .iconbtn{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:var(--fg);cursor:pointer;border-radius:10px;flex:none}
 .iconbtn:hover{background:var(--card)}
 .iconbtn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.mode{background:none !important}
+.hnav{display:none}
 .mode .moon{display:none}
 html.dark .mode .sun{display:none}
 html.dark .mode .moon{display:block}
@@ -62,21 +64,19 @@ body.menu-on .hdr{opacity:0;pointer-events:none}
 .eye b{font-weight:400;color:var(--soft)}
 
 /* hero */
-.hero{position:relative;margin:14px 0 0;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:#9fc0e6}
+.hero{position:relative;margin:0;overflow:hidden;aspect-ratio:4/5;max-height:calc(100svh - 61px);width:100%;background:#9fc0e6}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
 .hero img.on{opacity:1}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55));pointer-events:none}
-.hero .cap{position:absolute;left:20px;right:20px;bottom:20px;z-index:1;color:#fff}
-.hero h1{font-size:min(48px,11.5vw);line-height:1;margin:0;font-style:italic;letter-spacing:-.01em;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.hero .cap{position:absolute;left:18px;right:18px;bottom:22px;z-index:1;color:#fff}
+.hero h1{font-size:min(48px,11.5vw);line-height:1;margin:0;letter-spacing:-.01em;text-shadow:0 2px 18px rgba(0,0,0,.25)}
 .hero p{margin:8px 0 0;font-size:16px;letter-spacing:.02em;opacity:.9}
-.dots{position:absolute;right:16px;top:16px;z-index:1;display:flex;gap:6px}
-.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45);transition:background .3s ease,width .3s ease}
-.dots i.on{background:#fff;width:16px;border-radius:3px}
 
 /* about */
 section.blk{padding:72px 0 8px}
 .about p:not(.eye){font-family:'IM Fell English',Georgia,serif;font-size:clamp(25px,6.4vw,40px);line-height:1.28;margin:0}
-.about p em{color:var(--acc)}
+.about p em{color:var(--acc);white-space:nowrap}
+.about p:not(.eye){text-wrap:pretty}
 
 /* works carousel */
 .wh{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:20px}
@@ -87,25 +87,28 @@ section.blk{padding:72px 0 8px}
 .arrows svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -18px;padding:0 18px 4px;scroll-padding:0 18px}
 .rail::-webkit-scrollbar{display:none}
-.wcard{flex:0 0 84%;scroll-snap-align:start;text-decoration:none;color:var(--fg);display:block}
-.wf{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--card);border:1px solid var(--line);transition:transform .35s ease}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+.gcol{display:flex;flex-direction:column;gap:20px;min-width:0}
+.wcard{text-decoration:none;color:var(--fg);display:block;min-width:0}
+.wf{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:var(--card);border:1px solid var(--line);transition:transform .35s ease}
 .wcard:hover .wf{transform:scale(.985)}
-.ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
-.ph b{font-family:'IM Fell English',Georgia,serif;font-weight:400;font-size:clamp(26px,7vw,40px);line-height:1}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(12px,3vw,20px)}
+.ph b{font-family:'IM Fell English',Georgia,serif;font-weight:400;font-size:clamp(19px,4.6vw,40px);line-height:1.05;overflow-wrap:anywhere}
 .ph span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-top:8px}
 .live{position:absolute;inset:0;overflow:hidden;background:#fff}
 .live iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;pointer-events:none;opacity:0;transition:opacity .45s ease;background:#fff}
 .live iframe.on{opacity:1}
-.wc{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:10px}
-.wc b{font-family:'IM Fell English',Georgia,serif;font-weight:400;font-size:21px}
-.wc span{color:var(--muted);font-size:14px}
-.wc small{display:block;color:var(--muted);font-size:13px;margin-top:1px}
+.wc{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;margin-top:9px;font-size:13px}
+.wc b{font-family:'IM Fell English',Georgia,serif;font-weight:400;font-size:17px;color:var(--fg)}
+.wc .y{color:var(--muted)}
+.wc .k{color:var(--muted);margin-left:auto;text-align:right}
 
 /* playground bento */
 .bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:120px;gap:10px}
 .tile{position:relative;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--fg);display:block}
 .tile.t1{grid-row:span 2}
 .tile.t2{grid-column:span 2;grid-row:span 2}
+.tile.solo{grid-column:1/-1;grid-row:span 3}
 .tile .tl{position:absolute;left:10px;bottom:10px;z-index:2;font-size:12px;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);max-width:calc(100% - 20px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tile:hover .tl{background:var(--fg);color:var(--bg)}
 
@@ -167,16 +170,24 @@ html.dark .pad{background:#1a1b1e}
 .dl{margin:22px 0 0}
 
 @media (min-width:900px){
+  #openMenu{display:none}
+  .brand{margin-right:28px}
+  .hnav{display:flex;gap:26px;margin-right:auto}
+  .hnav a{text-decoration:none;font-size:14px;color:var(--muted);letter-spacing:.02em}
+  .hnav a:hover{color:var(--fg)}
+  .tile.solo{grid-row:span 3}
   .wrap{max-width:1160px;padding:0 40px}
   .hdr{padding:10px 40px}
-  .hero{aspect-ratio:16/8;margin-top:22px;border-radius:26px}
-  .hero .cap{left:40px;bottom:36px}
+  .hero{aspect-ratio:16/8}
+  .hero .cap{left:max(40px,calc((100vw - 1080px)/2));bottom:44px}
   .hero h1{font-size:84px}
   .hero p{font-size:19px}
   section.blk{padding:110px 0 8px}
   .about p{max-width:980px}
   .rail{margin:0;padding:0 0 4px;scroll-padding:0}
-  .wcard{flex-basis:calc(50% - 7px)}
+  .grid2{gap:16px}
+  .gcol{gap:30px}
+  .wc{flex-wrap:nowrap}
   .bento{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:150px;gap:14px}
   .ts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
   .ts h3{grid-row:1}
@@ -191,7 +202,8 @@ html.dark .pad{background:#1a1b1e}
 
 <header class="hdr">
   <button class="iconbtn" id="openMenu" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
-  <a class="brand" href="#top">Àmúró Gallery</a>
+  <a class="brand" href="#top">Àmúró</a>
+  <nav class="hnav" aria-label="Main"><a href="#about">Àmúró</a><a href="#playground">Playground</a><a href="#works">Gallery</a><a href="https://shop.arstudios.workers.dev" rel="noopener">AR Studios ↗</a><a href="#resume">Resume</a></nav>
   <button class="iconbtn mode" id="mode" aria-label="Switch to dark mode">
     <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18M6.5 18a5.5 5.5 0 0 1 11 0M12 6.5V4M5.6 9.6 3.9 7.9M18.4 9.6l1.7-1.7M8 21h8"></path></svg>
     <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"></path><path d="M17 3.5v3M15.5 5h3M20.5 8.5v2M19.5 9.5h2"></path></svg>
@@ -204,26 +216,25 @@ html.dark .pad{background:#1a1b1e}
     <button class="iconbtn" id="closeMenu" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
     <nav aria-label="Main">
       <a href="#about" data-close>Àmúró</a>
-      <a href="#playground" data-close>playground</a>
-      <a href="#works" data-close>projects</a>
+      <a href="#playground" data-close>Playground</a>
+      <a href="#works" data-close>Gallery</a>
       <a href="https://shop.arstudios.workers.dev" rel="noopener" data-ext>AR Studios <small>↗</small></a>
-      <a href="#resume" data-close>resume</a>
+      <a href="#resume" data-close>Resume</a>
     </nav>
   </div>
 </div>
 
 <main id="home">
-  <div class="wrap">
-    <section id="top" aria-label="Home">
+  <section id="top" aria-label="Home">
       <div class="hero" id="hero">
-        <img class="on" src="img/campus.webp" srcset="img/campus-s.webp 900w, img/campus.webp 1800w" sizes="(min-width:900px) 1080px, 100vw" alt="" fetchpriority="high">
-        <div class="dots" id="dots" aria-hidden="true"></div>
+        <img class="on" src="img/campus.webp" srcset="img/campus-s.webp 900w, img/campus.webp 1800w" sizes="100vw" alt="" fetchpriority="high">
         <div class="cap">
           <h1>Àmúró Ayomiposi</h1>
           <p>Visual Artist &amp; Design Engineer</p>
         </div>
       </div>
-    </section>
+  </section>
+  <div class="wrap">
 
     <section class="blk about" id="about" aria-label="About">
       <p class="eye"><i aria-hidden="true"></i>About</p>
@@ -234,14 +245,13 @@ html.dark .pad{background:#1a1b1e}
       <p class="eye"><i aria-hidden="true"></i>Selected works <b id="wcount"></b></p>
       <div class="wh">
         <h2 id="works-h">Campaigns, case studies &amp; the works</h2>
-        <div class="arrows"><button id="prev" aria-label="Previous project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button><button id="next" aria-label="Next project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></div>
       </div>
-      <div class="rail" id="rail"></div>
+      <div class="grid2" id="rail"></div>
     </section>
 
     <section class="blk" id="playground" aria-labelledby="pg-h">
       <p class="eye"><i aria-hidden="true"></i>Playground</p>
-      <div class="wh"><h2 id="pg-h">Things I've built for fun &amp; friends</h2></div>
+      <div class="wh"><h2 id="pg-h">Things I build for fun</h2></div>
       <div class="bento" id="bento"></div>
     </section>
 
@@ -332,21 +342,20 @@ html.dark .pad{background:#1a1b1e}
 
   // Hero: slow crossfade through the photos
   (function () {
-    var PICS = ['campus', 'sky', 'lawn', 'big-tree', 'canopy'], hero = document.getElementById('hero'), dots = document.getElementById('dots');
+    var PICS = ['campus', 'sky', 'lawn', 'big-tree', 'canopy'], hero = document.getElementById('hero');
     var first = hero.querySelector('img'), imgs = [first], k = 0, timer = 0;
-    dots.innerHTML = PICS.map(function (_, i) { return '<i' + (i ? '' : ' class="on"') + '></i>'; }).join('');
     function add() {
       PICS.slice(1).forEach(function (p) {
         var im = new Image(); im.alt = ''; im.decoding = 'async';
         im.srcset = 'img/' + p + '-s.webp 900w, img/' + p + '.webp 1800w'; im.sizes = first.sizes; im.src = 'img/' + p + '.webp';
-        hero.insertBefore(im, dots); imgs.push(im);
+        hero.insertBefore(im, hero.querySelector('.cap')); imgs.push(im);
       });
     }
     function next() {
       var n = (k + 1) % imgs.length;
       if (!imgs[n].complete) return; // wait until it has arrived
       imgs[k].classList.remove('on'); imgs[n].classList.add('on');
-      dots.children[k].classList.remove('on'); dots.children[n].classList.add('on'); k = n;
+      k = n;
     }
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     window.addEventListener('load', function () { add(); timer = setInterval(function () { if (!document.hidden) next(); }, 5200); });
@@ -404,24 +413,17 @@ html.dark .pad{background:#1a1b1e}
   function wframe(w) {
     return '<div class="wf">' + (w.link ? live(w.link, w.name) : '') + (w.art ? '<div class="ph" style="' + w.art + '"><b>' + esc(w.name) + '</b><span>' + esc(w.kind) + '</span></div>' : '') + '</div>';
   }
-  document.getElementById('rail').innerHTML = W.map(function (w) {
-    return '<a class="wcard" href="#p-' + w.id + '" aria-label="' + esc(w.name) + ' — open project">' + wframe(w) +
-      '<div class="wc"><span><b>' + esc(w.name) + '</b><small>' + esc(w.kind) + '</small></span><span>' + esc(w.year) + '</span></div></a>';
-  }).join('');
+  var SH = ['4/4.6', '16/11', '16/11', '4/4.6'], cols = ['', ''];
+  W.forEach(function (w, i) {
+    cols[i % 2] += '<a class="wcard" href="#p-' + w.id + '" aria-label="' + esc(w.name) + ' — open project">' + wframe(w).replace('<div class="wf">', '<div class="wf" style="aspect-ratio:' + SH[i % 4] + '">') +
+      '<div class="wc"><b>' + esc(w.name) + '</b><span class="y">© ' + esc(w.year) + '</span><span class="k">' + esc(w.kind) + '</span></div></a>';
+  });
+  document.getElementById('rail').innerHTML = '<div class="gcol">' + cols[0] + '</div><div class="gcol">' + cols[1] + '</div>';
   document.getElementById('wcount').textContent = String(W.length).padStart(2, '0');
-  var rail = document.getElementById('rail');
-  function by(d) { var c = rail.querySelector('.wcard'); rail.scrollBy({ left: d * (c ? c.offsetWidth + 14 : 300), behavior: 'smooth' }); }
-  document.getElementById('prev').addEventListener('click', function () { by(-1); });
-  document.getElementById('next').addEventListener('click', function () { by(1); });
 
   // Playground
   var G = [
-    { n: 'Studio AR — sketch to line art', u: 'https://studioar.vercel.app', c: 't2' },
-    { n: 'eSports results generator', u: 'https://esportsresultsgen.vercel.app', c: 't1' },
-    { n: 'Ojuju Calabar', u: 'https://ojujucalabar.vercel.app', c: 't1' },
-    { n: 'Muniac — portfolio', u: 'https://muniac.vercel.app', c: '' },
-    { n: 'Chinaza — portfolio', u: 'https://chinazaa.vercel.app', c: '' },
-    { n: 'Klonex — portfolio', u: 'https://klonexofficial.vercel.app', c: 't2' }
+    { n: 'Sketch Studio — sketch to line art', u: 'https://studioar.vercel.app', c: 'solo' }
   ];
   document.getElementById('bento').innerHTML = G.map(function (g) {
     return '<a class="tile ' + g.c + '" href="' + esc(g.u) + '" rel="noopener" target="_blank">' + live(g.u, g.n) + '<span class="tl">' + esc(g.n) + ' ↗</span></a>';
