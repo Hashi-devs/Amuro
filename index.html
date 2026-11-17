@@ -186,6 +186,8 @@ html.dark .pad{background:#1a1b1e}
 .tp p{margin:0 0 16px;color:color-mix(in srgb,var(--fg) 82%,var(--bg))}
 .tp ul{margin:0 0 16px;padding-left:20px;color:color-mix(in srgb,var(--fg) 82%,var(--bg))}
 .tp li{margin:6px 0}
+.tfig{margin:22px 0 26px}.tfig img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+.wf .wcov{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .soon{display:inline-block;margin-top:6px;padding:6px 12px;border-radius:999px;border:1px dashed var(--line);font-size:14px;color:var(--muted)}
 .dtabs{display:flex;gap:6px;margin:16px 0 0;border-bottom:1px solid var(--line)}
 .dtabs a{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px}
@@ -440,16 +442,27 @@ html.dark .pad{background:#1a1b1e}
       text: [['h', 'Overview'], ['p', 'AR Studios is my own shop for the art, illustrations and stories I make, set up to fund a laptop so I can move my sketches from paper to screen. Every piece sells for ₦1,000, and a progress tracker shows how close the goal is.'],
         ['h', 'Challenge'], ['p', 'Sell hand-drawn work online without it looking like a phone photo of paper, take real payments, and keep the whole thing simple enough to run alone from a phone.'],
         ['h', 'Solution'], ['ul', ['A dark, blue-toned shop with a gallery of Arts, Illustrations, Stories and Tools.', 'Sketch Studio built into the admin side, which turns photos of drawings into clean line art on paper and frame mockups before they go up.', 'Checkout through Paystack, with Supabase behind the scenes, and a hidden admin page for managing the gallery.', 'Games and tools in the gallery open by negotiation rather than a fixed price.']]] },
-    { id: 'mog-branding', name: 'MOG eSports Branding', kind: 'Brand identity', year: '2026', link: '', pending: 'Canva file coming soon',
-      art: 'background:radial-gradient(120% 90% at 20% 10%,#5b2bd6,#14102a 70%);color:#f5e9ff',
-      text: [['h', 'Overview'], ['p', 'Brand identity for Monarchs of Gaming eSports, where I lead design. The full case study and the Canva file are on their way.']] },
+    { id: 'mog-branding', name: 'MOG eSports Branding', kind: 'Brand identity', year: '2026', link: '', cover: 'img/mog/opening.webp',
+      text: [['h', 'Overview'], ['p', 'Monarchs of Gaming (MOG) is a Nigerian esports team. I have been its designer since the team started in early 2025, in charge of the logo and every visual the team puts out.'],
+        ['h', 'The logo'], ['p', 'I wanted a simple text logo, but the letters on their own felt plain. Adding a crown to the M brought in the idea of the players as monarchs. A straight crown would have felt stiff, and these are cool people, so it sits on a slant.'],
+        ['img', 'img/mog/logo-variations.webp', 'Four MOG logo variations: gradient on white, gradient on black, white on black and black on white'],
+        ['h', 'Challenge'], ['p', 'The team paused early on. When they came back in October 2026 they asked me to redesign the brand. Their earlier designs had no consistency and weren\'t strong enough to stand out. They needed visuals that could hold their own in the esports community and help win partnerships and sponsorships for the tournaments they apply to.'],
+        ['h', 'Solution'], ['p', 'I started by making the logo brighter, then built a proper set of brand assets so every design stays consistent.'],
+        ['ul', ['Anton for headlines and Garet for body text, both at their default letter spacing.', 'Royal purple and magenta as the main colours, with white and black, and lighter and darker steps of each.', 'Repeatable post designs for matchdays, player spotlights, standings, the roster and monthly posts.']],
+        ['img', 'img/mog/typography.webp', 'Typography: Anton for headings and Garet for body text'],
+        ['img', 'img/mog/colour-palette.webp', 'Colour palette: royal purple #7410AA, magenta #C90CCE, white and black, with their tints'],
+        ['img', 'img/mog/social-profile.webp', 'MOG social profile with a matchday post'],
+        ['img', 'img/mog/social-posts.webp', 'Three MOG posts: NFL Group D matchday, November welcome post and Minato player spotlight'],
+        ['img', 'img/mog/billboard-city.webp', 'The Monarchs roster on a city building billboard'],
+        ['img', 'img/mog/billboard-station.webp', 'The Monarchs team banner on twin screens above a station staircase'],
+        ['h', 'Outcome'], ['p', 'Engagement has been strong since the relaunch, and the team is happy and proud of how the brand has come together.']] },
     { id: 'siwes-atlas', name: 'SIWES Atlas', kind: 'Product', year: '2026', link: 'https://siwes-atlas.vercel.app/',
       text: [['h', 'Overview'], ['p', 'SIWES Atlas is a public directory for SIWES, the industrial training scheme Nigerian tertiary students go through. It puts vetted placements in one place, built as an entry to the OPay Challenge 2026.'],
         ['h', 'Challenge'], ['p', 'Finding a placement usually means word of mouth and long silences after applying. Students can\'t see where the open slots are, whether a role is paid, or how long a company takes to reply.'],
         ['h', 'Solution'], ['ul', ['Separate gateways for students and companies.', 'An interactive globe explorer, starting with Nigeria.', 'Postal-stamp cards per state with open slots, stipends and response times.', 'A workspace that tracks each application.']]] }
   ];
   function wframe(w) {
-    return '<div class="wf">' + (w.link ? live(w.link, w.name) : '') + (w.art ? '<div class="ph" style="' + w.art + '"><b>' + esc(w.name) + '</b><span>' + esc(w.kind) + '</span></div>' : '') + '</div>';
+    return '<div class="wf">' + (w.link ? live(w.link, w.name) : '') + (w.cover ? '<img class="wcov" src="' + w.cover + '" alt="" loading="lazy">' : '') + (w.art ? '<div class="ph" style="' + w.art + '"><b>' + esc(w.name) + '</b><span>' + esc(w.kind) + '</span></div>' : '') + '</div>';
   }
   var SH = ['4/4.6', '16/11', '16/11', '4/4.6'], wide = window.matchMedia('(min-width:900px)');
   function wcard(w, i, two) {
@@ -541,6 +554,7 @@ html.dark .pad{background:#1a1b1e}
     return t.map(function (x) {
       if (x[0] === 'h') return '<h2>' + esc(x[1]) + '</h2>';
       if (x[0] === 'ul') return '<ul>' + x[1].map(function (li) { return '<li>' + esc(li) + '</li>'; }).join('') + '</ul>';
+      if (x[0] === 'img') return '<figure class="tfig"><img src="' + esc(x[1]) + '" alt="' + esc(x[2] || '') + '" loading="lazy" width="1600" height="1000"></figure>';
       return '<p>' + esc(x[1]) + '</p>';
     }).join('');
   }
