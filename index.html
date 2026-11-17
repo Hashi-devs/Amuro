@@ -112,7 +112,11 @@ section.blk{padding:72px 0 8px}
 /* playground bento */
 .bento{display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
 .pgf{position:relative;display:block;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:var(--card);border:1px solid var(--line)}
-.pgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% center;display:block}
+.pgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.pgf:has(.pgov){aspect-ratio:16/9;container-type:inline-size}
+.pgov{position:absolute;left:7.4cqw;top:6.5cqw;width:45cqw;color:#14161a;text-align:left}
+.pgov b{display:block;font:400 7.6cqw/1.1 'IM Fell English',Georgia,serif}
+.pgov span{display:block;margin-top:2.4cqw;font:400 3.6cqw/1.45 'Geist',system-ui,sans-serif;color:#3d4452}
 .pgc h3{font-size:22px;margin:12px 0 4px}
 .pgc p{margin:0 0 8px;color:var(--muted);font-size:15px;line-height:1.55}
 .pgv{font-size:14px;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
@@ -499,10 +503,10 @@ html.dark .pad{background:#1a1b1e}
 
   // Playground
   var G = [
-    { n: 'Sketch Studio', u: 'https://shop.arstudios.workers.dev/sketch-studio/', img: 'img/sketch-studio-card.webp', d: 'Turns photos of my drawings into clean line art on textured paper or in frame mockups, keeping every line weight. It lives inside AR Studios, where anyone can vectorise and digitise their own art.' }
+    { n: 'Sketch Studio', u: 'https://shop.arstudios.workers.dev/sketch-studio/', img: 'img/sketch-studio-card.webp', ov: ['Sketch Studio', 'Turn a photo of a pencil or pen drawing into clean digital line art.'], d: 'Turns photos of my drawings into clean line art on textured paper or in frame mockups, keeping every line weight. It lives inside AR Studios, where anyone can vectorise and digitise their own art.' }
   ];
   document.getElementById('bento').innerHTML = G.map(function (g) {
-    return '<article class="pgc"><a class="pgf" href="' + esc(g.u) + '" rel="noopener" target="_blank" tabindex="-1" aria-hidden="true">' + (g.img ? '<img class="pgimg" src="' + g.img + '" alt="" loading="lazy">' : live(g.u, g.n)) + '</a>' +
+    return '<article class="pgc"><a class="pgf" href="' + esc(g.u) + '" rel="noopener" target="_blank" tabindex="-1" aria-hidden="true">' + (g.img ? '<img class="pgimg" src="' + g.img + '" alt="" loading="lazy">' + (g.ov ? '<span class="pgov"><b>' + esc(g.ov[0]) + '</b><span>' + esc(g.ov[1]) + '</span></span>' : '') : live(g.u, g.n)) + '</a>' +
       '<h3>' + esc(g.n) + '</h3><p>' + esc(g.d) + '</p><a class="pgv" href="' + esc(g.u) + '" rel="noopener" target="_blank">Visit website ↗</a></article>';
   }).join('');
   watch(document);
