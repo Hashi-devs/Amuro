@@ -8,7 +8,11 @@
 <meta property="og:title" content="Àmúró Ayomiposi — Visual Artist & Design Engineer">
 <meta property="og:description" content="A growing visual artist, designer and engineer. I build what I craft.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://amuroayo.vercel.app/img/campus.webp">
+<meta property="og:image" content="https://amuroayo.vercel.app/img/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Àmúró Ayomiposi">
+<meta name="twitter:image" content="https://amuroayo.vercel.app/img/og/home.jpg">
 <meta property="og:url" content="https://amuroayo.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f6f5f1">
@@ -528,7 +532,7 @@ html.dark .pad{background:#1a1b1e}
   // Playground
   var G = [
     { n: 'Lineworks', u: 'https://lineworksar.vercel.app', img: 'img/sketch-studio-card.webp', ov: ['Lineworks', 'Turn a photo of a pencil or pen drawing into clean digital line art.'], d: 'Turns photos of my drawings into clean line art on textured paper or in frame mockups, keeping every line weight. Part of AR Studios, and anyone can use it to vectorise and digitise their own art.' },
-    { n: 'AutoStandings', u: 'https://autostandings.vercel.app', img: 'img/autostandings-card.webp?v=2', d: 'Upload a results design once, drop in the matchday results, and download the finished standings graphic at full quality. Built after NGFFC Season 4 to save tournament and scrim admins hours of manual tallying.' }
+    { n: 'AutoStandings', u: 'https://autostandings.vercel.app', img: 'img/autostandings-card.webp?v=3', d: 'Upload a results design once, drop in the matchday results, and download the finished standings graphic at full quality. Built after NGFFC Season 4 to save tournament and scrim admins hours of manual tallying.' }
   ];
   document.getElementById('bento').innerHTML = G.map(function (g) {
     return '<article class="pgc"><a class="pgf" href="' + esc(g.u) + '" rel="noopener" target="_blank" tabindex="-1" aria-hidden="true">' + (g.img ? '<img class="pgimg" src="' + g.img + '" alt="" loading="lazy">' + (g.ov ? '<span class="pgov"><b>' + esc(g.ov[0]) + '</b><span>' + esc(g.ov[1]) + '</span></span>' : '') : live(g.u, g.n)) + '</a>' +
