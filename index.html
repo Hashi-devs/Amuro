@@ -114,7 +114,7 @@ section.blk{padding:72px 0 8px}
 .bento{display:grid;grid-template-columns:minmax(0,1fr);gap:34px}
 .pgf{position:relative;display:block;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:var(--card);border:1px solid var(--line)}
 .pgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-.pgf:has(.pgov){aspect-ratio:16/9;container-type:inline-size}
+.pgf:has(.pgimg){aspect-ratio:16/9}.pgf:has(.pgov){container-type:inline-size}
 .pgov{position:absolute;left:7.4cqw;top:6.5cqw;width:45cqw;color:#14161a;text-align:left}
 .pgov b{display:block;font:400 7.6cqw/1.1 'IM Fell English',Georgia,serif}
 .pgov span{display:block;margin-top:2.4cqw;font:400 3.6cqw/1.45 'Geist',system-ui,sans-serif;color:#3d4452}
@@ -477,7 +477,7 @@ html.dark .pad{background:#1a1b1e}
         ['h', 'Visual language'], ['p', 'Deep purple and a bright yellow carry everything, with Free Fire characters and the trophy washed in purple behind the type. Team line-ups, matchday pairings, results tables and MVP boards all reuse the same grid, so a new post could go out quickly after every matchday without losing the look.'],
         ['scroll', [['img/ngffc/p06.webp', 'Matchday day one, group A vs group B'], ['img/ngffc/p11.webp', 'Group A teams'], ['img/ngffc/p17.webp', 'Game twists, each kill is worth 2 points'], ['img/ngffc/p18.webp', 'Game twists, doubled placement and kill points'], ['img/ngffc/p19.webp', 'Finals results table'], ['img/ngffc/p31.webp', 'Team MVPs board'], ['img/ngffc/p24.webp', 'Winners post, Cliq eSports first']]],
         ['h', 'Outcome'], ['p', 'The season ran from registration to the grand finals with a steady stream of posts the teams could follow and share, and Cliq eSports took the crown.'],
-        ['p', 'Working the results posts after each matchday showed me one reason tournaments don\'t go well, which is that results are still tallied by hand. So I built Matchday Studio, a tool that turns match results into finished standings graphics, to make things easier on everyone and improve how the community runs scrims and future tournaments. You can find it in the playground.']] },
+        ['p', 'Working the results posts after each matchday showed me one reason tournaments don\'t go well, which is that results are still tallied by hand. So I built AutoStandings, a tool that turns match results into finished standings graphics, to make things easier on everyone and improve how the community runs scrims and future tournaments. You can find it in the playground.']] },
     { id: 'siwes-atlas', name: 'SIWES Atlas', kind: 'Product', year: '2026', link: 'https://siwes-atlas.vercel.app/',
       text: [['h', 'Overview'], ['p', 'SIWES Atlas is a public directory for SIWES, the industrial training scheme Nigerian tertiary students go through. It puts vetted placements in one place, built as an entry to the OPay Challenge 2026.'],
         ['h', 'Challenge'], ['p', 'Finding a placement usually means word of mouth and long silences after applying. Students can\'t see where the open slots are, whether a role is paid, or how long a company takes to reply.'],
@@ -527,7 +527,8 @@ html.dark .pad{background:#1a1b1e}
 
   // Playground
   var G = [
-    { n: 'Lineworks', u: 'https://lineworksar.vercel.app', img: 'img/sketch-studio-card.webp', ov: ['Lineworks', 'Turn a photo of a pencil or pen drawing into clean digital line art.'], d: 'Turns photos of my drawings into clean line art on textured paper or in frame mockups, keeping every line weight. Part of AR Studios, and anyone can use it to vectorise and digitise their own art.' }
+    { n: 'Lineworks', u: 'https://lineworksar.vercel.app', img: 'img/sketch-studio-card.webp', ov: ['Lineworks', 'Turn a photo of a pencil or pen drawing into clean digital line art.'], d: 'Turns photos of my drawings into clean line art on textured paper or in frame mockups, keeping every line weight. Part of AR Studios, and anyone can use it to vectorise and digitise their own art.' },
+    { n: 'AutoStandings', u: 'https://autostandings.vercel.app', img: 'img/autostandings-card.webp', d: 'Upload a results design once, drop in the matchday results, and download the finished standings graphic at full quality. Built after NGFFC Season 4 to save tournament and scrim admins hours of manual tallying.' }
   ];
   document.getElementById('bento').innerHTML = G.map(function (g) {
     return '<article class="pgc"><a class="pgf" href="' + esc(g.u) + '" rel="noopener" target="_blank" tabindex="-1" aria-hidden="true">' + (g.img ? '<img class="pgimg" src="' + g.img + '" alt="" loading="lazy">' + (g.ov ? '<span class="pgov"><b>' + esc(g.ov[0]) + '</b><span>' + esc(g.ov[1]) + '</span></span>' : '') : live(g.u, g.n)) + '</a>' +
