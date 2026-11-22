@@ -1,3 +1,15 @@
+// Doodle board: GET returns the latest doodles, POST adds one.
+// Needs three settings on the Vercel project: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY and DOODLE_SALT.
+// The table is created by supabase/doodles.sql.
+const crypto = require('crypto');
+
+const COLORS = new Set(['ink', '#3a6bd6', '#d9473b', '#2f9e6a']);
+const MAX_STROKES = 300, MAX_POINTS = 15000, MAX_PER_HOUR = 5, LIST_LIMIT = 150;
+
+function clean(input) {
+  if (!Array.isArray(input) || !input.length || input.length > MAX_STROKES) return null;
+  let points = 0;
+  const out = [];
   for (const s of input) {
     if (!s || !COLORS.has(s.c) || !Array.isArray(s.p) || s.p.length < 2 || s.p.length % 2) return null;
     const w = Number(s.w);
@@ -51,4 +63,3 @@ module.exports = async (req, res) => {
     return res.status(502).end(JSON.stringify({ error: 'The doodle board could not be reached.' }));
   }
 };
-        
